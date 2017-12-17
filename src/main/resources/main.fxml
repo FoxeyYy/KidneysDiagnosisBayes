@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<GridPane alignment="BASELINE_LEFT" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="maerc.Controller">
+    <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
+
+    <Text text="Welcome" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <VBox alignment="BASELINE_LEFT" spacing="10">
+            <Label text="Información Previa" />
+            <CheckBox fx:id="obesity" text="Obesidad" />
+            <CheckBox fx:id="exposition" text="Exposición a productos industriales" />
+            <CheckBox fx:id="vhlMutation" text="Mutación en gen VHL" />
+            <CheckBox fx:id="smoker" text="Fumador" />
+            <CheckBox fx:id="gender" text="Gender" />
+            <CheckBox fx:id="personalBackground" text="Antecedentes personales de cálculos renales" />
+            <CheckBox fx:id="familiarBackground" text="Antecedentes familiares de cálculos renales" />
+            <CheckBox fx:id="cardiovascularEvent" text="Evento cardiovascular" />
+            <CheckBox fx:id="cardiovascularIllness" text="Enfermedad cardiovascular" />
+        </VBox>
+
+        <VBox alignment="BASELINE_LEFT" spacing="10">
+            <Label text="Síntomas" />
+            <CheckBox fx:id="renalBiopsy" text="Biopsia renal" />
+            <CheckBox fx:id="tiredness" text="Cansancio" />
+            <CheckBox fx:id="shortnessOfBreath" text="Falta de aliento" />
+        </VBox>
+
+        <Separator orientation="VERTICAL" />
+
+        <VBox fx:id="resultsPane" alignment="BASELINE_LEFT" spacing="10">
+            <Label text="Results:" />
+        </VBox>
+    </HBox>
+
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <Button onAction="#handleAnalysis" text="Analyze" />
+    </HBox>
+</GridPane>
