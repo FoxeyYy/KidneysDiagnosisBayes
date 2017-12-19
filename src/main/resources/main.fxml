@@ -13,6 +13,7 @@
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
         <VBox alignment="BASELINE_LEFT" spacing="10">
             <Label text="Información Previa" />
+            <CheckBox fx:id="painkillers" text="Ingesta frecuente de analgésicos" />
             <CheckBox fx:id="obesity" text="Obesidad" />
             <CheckBox fx:id="exposition" text="Exposición a productos industriales" />
             <CheckBox fx:id="vhlMutation" text="Mutación en gen VHL" />
@@ -22,13 +23,32 @@
             <CheckBox fx:id="familiarBackground" text="Antecedentes familiares de cálculos renales" />
             <CheckBox fx:id="cardiovascularEvent" text="Evento cardiovascular" />
             <CheckBox fx:id="cardiovascularIllness" text="Enfermedad cardiovascular" />
+            <CheckBox fx:id="alcoholic" text="Alcoholismo" />
+            <CheckBox fx:id="diabetic" text="Diabetes" />
+            <CheckBox fx:id="ageRisk" text="Edad de riesgo (30-40)" />
+            <CheckBox fx:id="pqrad" text="Historial familiar PQRAD" />
+            <CheckBox fx:id="pregnant" text="Embarazo" />
         </VBox>
 
         <VBox alignment="BASELINE_LEFT" spacing="10">
             <Label text="Síntomas" />
-            <CheckBox fx:id="renalBiopsy" text="Biopsia renal" />
+            <CheckBox fx:id="poorAppetite" text="Falta de apetito" />
+            <CheckBox fx:id="weightLoss" text="Pérdida de peso" />
             <CheckBox fx:id="tiredness" text="Cansancio" />
             <CheckBox fx:id="shortnessOfBreath" text="Falta de aliento" />
+            <CheckBox fx:id="renalBiopsy" text="Biopsia renal" />
+            <CheckBox fx:id="fever" text="Fiebre" />
+            <CheckBox fx:id="xRays" text="Radiografía" />
+            <CheckBox fx:id="dizzinessVomiting" text="Mareos y/o vómitos" />
+            <CheckBox fx:id="helicalCT" text="TC helicoidal sin contraste" />
+            <CheckBox fx:id="metabolicAnomalies" text="Anomalías metabólicas" />
+            <CheckBox fx:id="proteinuria" text="Proteinuria" />
+            <CheckBox fx:id="renalAnomalies3Months" text="Anomalías renales estructurales o funcionales por más de 3 meses" />
+            <CheckBox fx:id="hematuria" text="Hematuria" />
+            <CheckBox fx:id="pain" text="Dolor (cualquier región)" />
+            <CheckBox fx:id="aneurysm" text="Aneurisma intracraneal" />
+            <CheckBox fx:id="hypertension" text="Hipertensión" />
+            <CheckBox fx:id="leukocyteEsteraseTest" text="Prueba de esterasa leucocita" />
         </VBox>
 
         <Separator orientation="VERTICAL" />
