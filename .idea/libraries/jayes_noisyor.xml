@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jayes-noisyor">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jayes-noisyor.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
