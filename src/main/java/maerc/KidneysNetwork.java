@@ -23,11 +23,27 @@ public class KidneysNetwork {
         HISTORIAL_FAMILIAR_QUISTES("historialFamiliarPQRAD"),
         EMBARAZO("embarazo"),
         CANCER("cancer"),
+        PIEDRAS("piedras"),
+        CRONICA_RENAL("enfermedadCronicaRenal"),
+        PQRAD("quistesPQRAD"),
+        INFECCIONES("infeccionesTractoUrinario"),
         FALTA_APETITO("faltaDeApetito"),
         CANSANCIO("cansancio"),
         PERDIDA_PESO("perdidaDePeso"),
         FALTA_ALIENTO("faltaDeAliento"),
-        BIOPSIA_RENAL("biopsiaRenal");
+        BIOPSIA_RENAL("biopsiaRenal"),
+        FIEBRE("fiebre"),
+        RADIOGRAFIA("radiografia"),
+        MAREOS_VOMITOS("mareosYVomitos"),
+        TOMOGRAFIA_HELICOIDAL("tomografiaComputerizadaHelicoidal"),
+        ANORMALIDADES_METABOLICAS("anormalidadesMetabolicas"),
+        PROTEINURIA("proteinuria"),
+        ANOMALIAS_RENALES_MESES("anomaliasRenalesTresMeses"),
+        HEMATURIA("hematuria"),
+        DOLOR("dolor"),
+        ANEURISMAS_INTERCRANEALES("aneurismasIntercraneales"),
+        HIPERTENSION("hipertesion"),
+        ESTERESA_LEUCOCITARIA("pruebaEsteresaLeucocitaria");
 
         private final String name;
 
@@ -111,6 +127,18 @@ public class KidneysNetwork {
         BayesNodeBase cancer = net.createNode(Nodes.CANCER.toString(), BayesNodeBase.TYPE.DEFAULT);
         cancer.addOutcomes("false", "true");
 
+        BayesNodeBase piedras = net.createNode(Nodes.PIEDRAS.toString(), BayesNodeBase.TYPE.DEFAULT);
+        piedras.addOutcomes("false", "true");
+
+        BayesNodeBase cronica = net.createNode(Nodes.CRONICA_RENAL.toString(), BayesNodeBase.TYPE.DEFAULT);
+        cronica.addOutcomes("false", "true");
+
+        BayesNodeBase quistes = net.createNode(Nodes.PQRAD.toString(), BayesNodeBase.TYPE.DEFAULT);
+        quistes.addOutcomes("false", "true");
+
+        BayesNodeBase infecciones = net.createNode(Nodes.INFECCIONES.toString(), BayesNodeBase.TYPE.DEFAULT);
+        infecciones.addOutcomes("false", "true");
+
         //Sintomas y pruebas
         BayesNodeBase faltaApetito = net.createNode(Nodes.FALTA_APETITO.toString(), BayesNodeBase.TYPE.NOISY_OR);
         faltaApetito.addOutcomes("Negative", "Positive");
@@ -139,6 +167,76 @@ public class KidneysNetwork {
                 0.013, 0.987,
                 0.96, 0.04
             );
+
+        BayesNodeBase fiebre = net.createNode(Nodes.FIEBRE.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        fiebre.addOutcomes("Negative", "Positive");
+        fiebre.setParents(Arrays.asList(cancer, quistes, infecciones));
+        fiebre.setProbabilities(0.967, 0.32, 0.07);
+
+        BayesNodeBase radiografia = net.createNode(Nodes.RADIOGRAFIA.toString(), BayesNodeBase.TYPE.DEFAULT);
+        radiografia.addOutcomes("Positive", "Negative");
+        radiografia.setParents(Arrays.asList(piedras));
+        radiografia.setProbabilities(
+                0.26, 0.74,
+                0.52, 0.48
+        );
+
+        BayesNodeBase mareosVomitos = net.createNode(Nodes.MAREOS_VOMITOS.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        mareosVomitos.addOutcomes("Negative", "Positive");
+        mareosVomitos.setParents(Arrays.asList(piedras));
+        mareosVomitos.setProbabilities(0.55);
+
+        BayesNodeBase tomografia = net.createNode(Nodes.TOMOGRAFIA_HELICOIDAL.toString(), BayesNodeBase.TYPE.DEFAULT);
+        tomografia.addOutcomes("Positive", "Negative");
+        tomografia.setParents(Arrays.asList(piedras));
+        tomografia.setProbabilities(
+                0.05, 0.95,
+                0.975, 0.025
+        );
+
+        BayesNodeBase anormalidadesMetabolicas = net.createNode(Nodes.ANORMALIDADES_METABOLICAS.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        anormalidadesMetabolicas.addOutcomes("Negative", "Positive");
+        anormalidadesMetabolicas.setParents(Arrays.asList(piedras));
+        anormalidadesMetabolicas.setProbabilities(0.48);
+
+        BayesNodeBase proteinuria = net.createNode(Nodes.PROTEINURIA.toString(), BayesNodeBase.TYPE.DEFAULT);
+        proteinuria.addOutcomes("Positive", "Negative");
+        proteinuria.setParents(Arrays.asList(piedras));
+        proteinuria.setProbabilities(
+                0.13, 0.87,
+                0.96, 0.04
+        );
+
+        BayesNodeBase anomaliasMeses = net.createNode(Nodes.ANOMALIAS_RENALES_MESES.toString(), BayesNodeBase.TYPE.DEFAULT);
+        anomaliasMeses.addOutcomes("Positive", "Negative");
+        anomaliasMeses.setParents(Arrays.asList(piedras));
+        anomaliasMeses.setProbabilities(
+                0, 1,
+                1, 0
+        );
+
+        BayesNodeBase hematuria = net.createNode(Nodes.HEMATURIA.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        hematuria.addOutcomes("Negative", "Positive");
+        hematuria.setParents(Arrays.asList(cancer, piedras, cronica, quistes, infecciones));
+        hematuria.setProbabilities(0.934, 0.9, 0.025, 0.6, 0.4);
+
+        BayesNodeBase aneurismas = net.createNode(Nodes.ANEURISMAS_INTERCRANEALES.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        aneurismas.addOutcomes("Negative", "Positive");
+        aneurismas.setParents(Arrays.asList(quistes));
+        aneurismas.setProbabilities(0.8);
+
+        BayesNodeBase hipertesion = net.createNode(Nodes.HIPERTENSION.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        hipertesion.addOutcomes("Negative", "Positive");
+        hipertesion.setParents(Arrays.asList(quistes));
+        hipertesion.setProbabilities(0.6);
+
+        BayesNodeBase esteresa = net.createNode(Nodes.ESTERESA_LEUCOCITARIA.toString(), BayesNodeBase.TYPE.DEFAULT);
+        esteresa.addOutcomes("Positive", "Negative");
+        esteresa.setParents(Arrays.asList(infecciones));
+        esteresa.setProbabilities(
+                0.06, .94,
+                0.75, 0.25
+        );
 
     }
 
