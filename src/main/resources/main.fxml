@@ -31,6 +31,15 @@
         </VBox>
 
         <VBox alignment="BASELINE_LEFT" spacing="10">
+            <Label text="Enfermedades" />
+            <CheckBox fx:id="cancer" text="Carcinoma de células renales" />
+            <CheckBox fx:id="stones" text="Cálculos renales" />
+            <CheckBox fx:id="chronicKidneyDisease" text="Enfermedad renal crónica" />
+            <CheckBox fx:id="cysticKidneyDisease" text="Quistes en el riñon" />
+            <CheckBox fx:id="pyelonephritis" text="Pielonefritis" />
+        </VBox>
+
+        <VBox alignment="BASELINE_LEFT" spacing="10">
             <Label text="Síntomas" />
             <CheckBox fx:id="poorAppetite" text="Falta de apetito" />
             <CheckBox fx:id="weightLoss" text="Pérdida de peso" />
