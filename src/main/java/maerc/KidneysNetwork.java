@@ -143,21 +143,25 @@ public class KidneysNetwork {
         BayesNodeBase faltaApetito = net.createNode(Nodes.FALTA_APETITO.toString(), BayesNodeBase.TYPE.NOISY_OR);
         faltaApetito.addOutcomes("Negative", "Positive");
         faltaApetito.setParents(Arrays.asList(cancer));
+        ((BayesNodeNoisyOR) faltaApetito).setLeak(0.2);
         faltaApetito.setProbabilities(0.467);
 
         BayesNodeBase cansancio = net.createNode(Nodes.CANSANCIO.toString(), BayesNodeBase.TYPE.NOISY_OR);
         cansancio.addOutcomes("Negative", "Positive");
         cansancio.setParents(Arrays.asList(cancer));
+        ((BayesNodeNoisyOR) cansancio).setLeak(0.35);
         cansancio.setProbabilities(0.73);
 
         BayesNodeBase perdidaPeso = net.createNode(Nodes.PERDIDA_PESO.toString(), BayesNodeBase.TYPE.NOISY_OR);
         perdidaPeso.addOutcomes("Negative", "Positive");
         perdidaPeso.setParents(Arrays.asList(cancer));
+        ((BayesNodeNoisyOR) perdidaPeso).setLeak(0.3);
         perdidaPeso.setProbabilities(0.967);
 
         BayesNodeBase faltaAliento = net.createNode(Nodes.FALTA_ALIENTO.toString(), BayesNodeBase.TYPE.NOISY_OR);
         faltaAliento.addOutcomes("Negative", "Positive");
         faltaAliento.setParents(Arrays.asList(cancer));
+        ((BayesNodeNoisyOR) faltaAliento).setLeak(0.15);
         faltaAliento.setProbabilities(0.964);
 
         BayesNodeBase biopsiaRenal = net.createNode(Nodes.BIOPSIA_RENAL.toString(), BayesNodeBase.TYPE.DEFAULT);
@@ -171,6 +175,7 @@ public class KidneysNetwork {
         BayesNodeBase fiebre = net.createNode(Nodes.FIEBRE.toString(), BayesNodeBase.TYPE.NOISY_OR);
         fiebre.addOutcomes("Negative", "Positive");
         fiebre.setParents(Arrays.asList(cancer, quistes, infecciones));
+        ((BayesNodeNoisyOR) fiebre).setLeak(0.15);
         fiebre.setProbabilities(0.967, 0.32, 0.07);
 
         BayesNodeBase radiografia = net.createNode(Nodes.RADIOGRAFIA.toString(), BayesNodeBase.TYPE.DEFAULT);
@@ -184,6 +189,7 @@ public class KidneysNetwork {
         BayesNodeBase mareosVomitos = net.createNode(Nodes.MAREOS_VOMITOS.toString(), BayesNodeBase.TYPE.NOISY_OR);
         mareosVomitos.addOutcomes("Negative", "Positive");
         mareosVomitos.setParents(Arrays.asList(piedras));
+        ((BayesNodeNoisyOR) mareosVomitos).setLeak(0.15);
         mareosVomitos.setProbabilities(0.55);
 
         BayesNodeBase tomografia = net.createNode(Nodes.TOMOGRAFIA_HELICOIDAL.toString(), BayesNodeBase.TYPE.DEFAULT);
@@ -197,6 +203,7 @@ public class KidneysNetwork {
         BayesNodeBase anormalidadesMetabolicas = net.createNode(Nodes.ANORMALIDADES_METABOLICAS.toString(), BayesNodeBase.TYPE.NOISY_OR);
         anormalidadesMetabolicas.addOutcomes("Negative", "Positive");
         anormalidadesMetabolicas.setParents(Arrays.asList(piedras));
+        ((BayesNodeNoisyOR) anormalidadesMetabolicas).setLeak(.03);
         anormalidadesMetabolicas.setProbabilities(0.48);
 
         BayesNodeBase proteinuria = net.createNode(Nodes.PROTEINURIA.toString(), BayesNodeBase.TYPE.DEFAULT);
@@ -218,21 +225,25 @@ public class KidneysNetwork {
         BayesNodeBase hematuria = net.createNode(Nodes.HEMATURIA.toString(), BayesNodeBase.TYPE.NOISY_OR);
         hematuria.addOutcomes("Negative", "Positive");
         hematuria.setParents(Arrays.asList(cancer, piedras, cronica, quistes, infecciones));
+        ((BayesNodeNoisyOR) hematuria).setLeak(0.02);
         hematuria.setProbabilities(0.934, 0.9, 0.025, 0.6, 0.4);
 
         BayesNodeBase dolor = net.createNode(Nodes.DOLOR.toString(), BayesNodeBase.TYPE.NOISY_OR);
         dolor.addOutcomes("Negative", "Positive");
         dolor.setParents(Arrays.asList(cancer, piedras, quistes));
+        ((BayesNodeNoisyOR) dolor).setLeak(0.2);
         dolor.setProbabilities(0.968, 0.56, 0.175);
 
         BayesNodeBase aneurismas = net.createNode(Nodes.ANEURISMAS_INTERCRANEALES.toString(), BayesNodeBase.TYPE.NOISY_OR);
         aneurismas.addOutcomes("Negative", "Positive");
         aneurismas.setParents(Arrays.asList(quistes));
+        ((BayesNodeNoisyOR) aneurismas).setLeak(0.04);
         aneurismas.setProbabilities(0.8);
 
         BayesNodeBase hipertesion = net.createNode(Nodes.HIPERTENSION.toString(), BayesNodeBase.TYPE.NOISY_OR);
         hipertesion.addOutcomes("Negative", "Positive");
         hipertesion.setParents(Arrays.asList(quistes));
+        ((BayesNodeNoisyOR) hipertesion).setLeak(0.3);
         hipertesion.setProbabilities(0.6);
 
         BayesNodeBase esteresa = net.createNode(Nodes.ESTERESA_LEUCOCITARIA.toString(), BayesNodeBase.TYPE.DEFAULT);
