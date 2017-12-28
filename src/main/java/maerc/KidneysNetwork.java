@@ -220,6 +220,11 @@ public class KidneysNetwork {
         hematuria.setParents(Arrays.asList(cancer, piedras, cronica, quistes, infecciones));
         hematuria.setProbabilities(0.934, 0.9, 0.025, 0.6, 0.4);
 
+        BayesNodeBase dolor = net.createNode(Nodes.DOLOR.toString(), BayesNodeBase.TYPE.NOISY_OR);
+        dolor.addOutcomes("Negative", "Positive");
+        dolor.setParents(Arrays.asList(cancer, piedras, quistes));
+        dolor.setProbabilities(0.968, 0.56, 0.175);
+
         BayesNodeBase aneurismas = net.createNode(Nodes.ANEURISMAS_INTERCRANEALES.toString(), BayesNodeBase.TYPE.NOISY_OR);
         aneurismas.addOutcomes("Negative", "Positive");
         aneurismas.setParents(Arrays.asList(quistes));
