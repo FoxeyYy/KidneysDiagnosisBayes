@@ -11,7 +11,7 @@
     <Text text="Welcome" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
 
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
-        <VBox alignment="BASELINE_LEFT" spacing="10">
+        <VBox fx:id="previousInfoPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Información Previa" />
             <CheckBox fx:id="painkillers" text="Ingesta frecuente de analgésicos" />
             <CheckBox fx:id="obesity" text="Obesidad" />
@@ -30,7 +30,7 @@
             <CheckBox fx:id="pregnant" text="Embarazo" />
         </VBox>
 
-        <VBox alignment="BASELINE_LEFT" spacing="10">
+        <VBox fx:id="illnessesPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Enfermedades" />
             <CheckBox fx:id="cancer" text="Carcinoma de células renales" />
             <CheckBox fx:id="stones" text="Cálculos renales" />
@@ -39,7 +39,7 @@
             <CheckBox fx:id="pyelonephritis" text="Pielonefritis" />
         </VBox>
 
-        <VBox alignment="BASELINE_LEFT" spacing="10">
+        <VBox fx:id="symptonsPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Síntomas" />
             <CheckBox fx:id="poorAppetite" text="Falta de apetito" />
             <CheckBox fx:id="weightLoss" text="Pérdida de peso" />
