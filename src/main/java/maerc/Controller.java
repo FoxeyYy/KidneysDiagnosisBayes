@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
@@ -29,15 +30,24 @@ public class Controller {
     @FXML
     private VBox resultsPane;
 
+    @FXML
+    private ChoiceBox genderChoice;
+
     private Map<String, Boolean> getInputFromPane (VBox inputPane) {
         FilteredList<Node> userInput = inputPane.getChildren().filtered(node -> node instanceof CheckBox);
         return userInput.stream().map(node -> (CheckBox)node).collect(Collectors.toMap(CheckBox::getId, CheckBox::isSelected));
+    }
+
+    private Map<String, String> getInputFromChoiceBoxes (VBox inputPane) {
+        FilteredList<Node> userInput = inputPane.getChildren().filtered(node -> node instanceof ChoiceBox);
+        return userInput.stream().map(node -> (ChoiceBox<String>)node).collect(Collectors.toMap(ChoiceBox::getId, ChoiceBox::getValue));
     }
 
     @FXML
     protected void handleAnalysis(ActionEvent actionEvent) {
         System.out.println(getInputFromPane(illnessesPane));
         System.out.println(getInputFromPane(previousInfoPane));
+        System.out.println(getInputFromChoiceBoxes(previousInfoPane));
         System.out.println(getInputFromPane(symptonsPane));
 
         // Dummy result

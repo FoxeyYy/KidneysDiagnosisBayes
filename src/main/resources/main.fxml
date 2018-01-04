@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<GridPane alignment="BASELINE_LEFT" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="maerc.Controller">
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<GridPane alignment="BASELINE_LEFT" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maerc.Controller">
     <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
 
-    <Text text="Welcome" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+    <Text text="Welcome" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
 
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
         <VBox fx:id="previousInfoPane" alignment="BASELINE_LEFT" spacing="10">
@@ -18,7 +31,15 @@
             <CheckBox fx:id="exposition" text="Exposición a productos industriales" />
             <CheckBox fx:id="vhlMutation" text="Mutación en gen VHL" />
             <CheckBox fx:id="smoker" text="Fumador" />
-            <CheckBox fx:id="gender" text="Gender" />
+            <ChoiceBox fx:id="gender" prefWidth="150.0" value="Gender">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Gender"/>
+                        <String fx:value="Male"/>
+                        <String fx:value="Female"/>
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
             <CheckBox fx:id="personalBackground" text="Antecedentes personales de cálculos renales" />
             <CheckBox fx:id="familiarBackground" text="Antecedentes familiares de cálculos renales" />
             <CheckBox fx:id="cardiovascularEvent" text="Evento cardiovascular" />
@@ -47,7 +68,7 @@
             <CheckBox fx:id="shortnessOfBreath" text="Falta de aliento" />
             <CheckBox fx:id="renalBiopsy" text="Biopsia renal" />
             <CheckBox fx:id="fever" text="Fiebre" />
-            <CheckBox fx:id="xRays" text="Radiografía" />
+            <CheckBox text="Radiografía" fx:id="xRays" />
             <CheckBox fx:id="dizzinessVomiting" text="Mareos y/o vómitos" />
             <CheckBox fx:id="helicalCT" text="TC helicoidal sin contraste" />
             <CheckBox fx:id="metabolicAnomalies" text="Anomalías metabólicas" />
@@ -70,4 +91,14 @@
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
         <Button onAction="#handleAnalysis" text="Analyze" />
     </HBox>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
