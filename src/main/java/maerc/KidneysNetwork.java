@@ -1,6 +1,7 @@
 package maerc;
 
 import org.eclipse.recommenders.jayes.*;
+import org.eclipse.recommenders.jayes.inference.junctionTree.JunctionTreeAlgorithm;
 
 import java.util.Arrays;
 
@@ -77,7 +78,7 @@ public class KidneysNetwork {
 
         BayesNodeBase VHL = net.createNode(Nodes.VHL.toString(), BayesNodeBase.TYPE.DEFAULT);
         VHL.addOutcomes("true", "false");
-        VHL.setProbabilities(1/3600, 3599/3600);
+        VHL.setProbabilities(1.0/3600, 3599.0/3600);
 
         BayesNodeBase fumador = net.createNode(Nodes.FUMADOR.toString(), BayesNodeBase.TYPE.DEFAULT);
         fumador.addOutcomes("true", "false");
