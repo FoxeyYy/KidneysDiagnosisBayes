@@ -1,6 +1,8 @@
 package maerc;
 
-import org.eclipse.recommenders.jayes.*;
+import org.eclipse.recommenders.jayes.BayesNet;
+import org.eclipse.recommenders.jayes.BayesNodeBase;
+import org.eclipse.recommenders.jayes.BayesNodeNoisyOR;
 import org.eclipse.recommenders.jayes.inference.IBayesInferer;
 import org.eclipse.recommenders.jayes.inference.junctionTree.JunctionTreeAlgorithm;
 
@@ -305,8 +307,8 @@ public class KidneysNetwork {
         return net;
     }
 
-    public void getProbabilityFor(Nodes nodeName, String outcome) {
+    public double getProbabilityFor(Nodes nodeName, String outcome) {
         BayesNodeBase node = net.getNode(nodeName.toString());
-        System.out.println(inferer.getBeliefs(node)[node.getOutcomeIndex(outcome)]);
+        return inferer.getBeliefs(node)[node.getOutcomeIndex(outcome)];
     }
 }
