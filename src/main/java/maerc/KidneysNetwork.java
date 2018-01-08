@@ -126,18 +126,39 @@ public class KidneysNetwork {
         //Enfermedades
         BayesNodeBase cancer = net.createNode(Nodes.CANCER.toString(), BayesNodeBase.TYPE.DEFAULT);
         cancer.addOutcomes("false", "true");
-
-        BayesNodeBase piedras = net.createNode(Nodes.PIEDRAS.toString(), BayesNodeBase.TYPE.DEFAULT);
-        piedras.addOutcomes("false", "true");
-
-        BayesNodeBase cronica = net.createNode(Nodes.CRONICA_RENAL.toString(), BayesNodeBase.TYPE.DEFAULT);
-        cronica.addOutcomes("false", "true");
+        cancer.setParents(Arrays.asList(ingestaMedicamentosDolor, obesidad, productosIndustriales, VHL, fumador, genero));
+        double[] placeholder = new double[128];
+        Arrays.fill(placeholder, .5);
+        cancer.setProbabilities(placeholder);
 
         BayesNodeBase quistes = net.createNode(Nodes.PQRAD.toString(), BayesNodeBase.TYPE.DEFAULT);
         quistes.addOutcomes("false", "true");
+        quistes.setParents(Arrays.asList(fumador, genero, edadRiesgo, historialQuistes));
+        placeholder = new double[32];
+        Arrays.fill(placeholder, .5);
+        quistes.setProbabilities(placeholder);
+
+        BayesNodeBase piedras = net.createNode(Nodes.PIEDRAS.toString(), BayesNodeBase.TYPE.DEFAULT);
+        piedras.addOutcomes("false", "true");
+        piedras.setParents(Arrays.asList(fumador, antecedentesPiedrasPersonal, antecedentesPiedrasFamilia, genero, quistes));
+        placeholder = new double[64];
+        Arrays.fill(placeholder, .5);
+        piedras.setProbabilities(placeholder);
+
+        BayesNodeBase cronica = net.createNode(Nodes.CRONICA_RENAL.toString(), BayesNodeBase.TYPE.DEFAULT);
+        cronica.addOutcomes("false", "true");
+        cronica.setParents(Arrays.asList(fumador, genero, enfermedadesCardiov, consumoAlcohol, diabetes));
+        placeholder = new double[64];
+        Arrays.fill(placeholder, .5);
+        cronica.setProbabilities(placeholder);
+
 
         BayesNodeBase infecciones = net.createNode(Nodes.INFECCIONES.toString(), BayesNodeBase.TYPE.DEFAULT);
         infecciones.addOutcomes("false", "true");
+        infecciones.setParents(Arrays.asList(genero, diabetes, embarazo));
+        placeholder = new double[16];
+        Arrays.fill(placeholder, .5);
+        infecciones.setProbabilities(placeholder);
 
         //Sintomas y pruebas
         BayesNodeBase faltaApetito = net.createNode(Nodes.FALTA_APETITO.toString(), BayesNodeBase.TYPE.NOISY_OR);
