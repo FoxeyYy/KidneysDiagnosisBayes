@@ -16,7 +16,9 @@
     <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
 
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
-        <VBox fx:id="previousInfoPane" alignment="BASELINE_LEFT" spacing="10">
+        <VBox fx:id="previousInfoPane" alignment="BASELINE_LEFT" spacing="10" >
+            <padding><Insets right="10" /></padding>
+
             <Label text="Información Previa" />
 
             <HBox>
@@ -115,7 +117,8 @@
                 </fx:define>
                 <children>
                     <VBox>
-                        <Label text="Antecedentes personales de cálculos renales"/>
+                        <Label text="Antecedentes personales de"/>
+                        <Label text="cálculos renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="N.S. / N.C."/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="Si"/>
@@ -130,7 +133,8 @@
                 </fx:define>
                 <children>
                     <VBox>
-                        <Label text="Antecedentes familiares de cálculos renales"/>
+                        <Label text="Antecedentes familiares de"/>
+                        <Label text="cálculos renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="N.S. / N.C."/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="Si"/>
@@ -232,6 +236,8 @@
         </VBox>
 
         <VBox fx:id="illnessesPane" alignment="BASELINE_LEFT" spacing="10">
+            <padding><Insets right="10" /></padding>
+
             <Label text="Enfermedades" />
 
             <HBox>
@@ -240,7 +246,8 @@
                 </fx:define>
                 <children>
                     <VBox>
-                        <Label text="Carcinoma de las células renales"/>
+                        <Label text="Carcinoma de las"/>
+                        <Label text="células renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$cancer" text="N.S. / N.C."/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$cancer" text="Si"/>
@@ -313,6 +320,8 @@
 
         <VBox fx:id="symptonsPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Síntomas" />
+
+            <padding><Insets right="10" /></padding>
 
             <HBox>
                 <fx:define>
@@ -485,7 +494,7 @@
                 </fx:define>
                 <children>
                     <VBox>
-                        <Label text="Anomalías renales estructurales o funcionales por más de 3 meses"/>
+                        <Label text="Anomalías renales por más de 3 meses"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$anomaliasRenalesTresMeses" text="N.S. / N.C."/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$anomaliasRenalesTresMeses" text="Positivo"/>
