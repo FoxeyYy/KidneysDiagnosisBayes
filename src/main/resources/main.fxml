@@ -582,8 +582,18 @@
 
         <Separator orientation="VERTICAL" />
 
-        <VBox fx:id="resultsPane" alignment="BASELINE_LEFT" spacing="10">
-            <Label text="Results:" />
+        <VBox>
+            <padding><Insets right="10" /></padding>
+            <Label text="Resultados simptomas:" />
+            <VBox fx:id="symptonsResultPane" alignment="BASELINE_LEFT" spacing="10">
+            </VBox>
+        </VBox>
+
+        <VBox>
+            <padding><Insets right="10" /></padding>
+            <Label text="Resultados enfermedades:" />
+            <VBox fx:id="illnessesResultPane" alignment="BASELINE_LEFT" spacing="10">
+            </VBox>
         </VBox>
     </HBox>
 

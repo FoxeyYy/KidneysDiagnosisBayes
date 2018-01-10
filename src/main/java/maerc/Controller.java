@@ -18,17 +18,14 @@ import java.util.stream.Stream;
 
 public class Controller {
 
+    //
+    // Window panes for displaying the results
+    //
     @FXML
-    private VBox illnessesPane;
+    private VBox symptonsResultPane;
 
     @FXML
-    private VBox previousInfoPane;
-
-    @FXML
-    private VBox symptonsPane;
-
-    @FXML
-    private VBox resultsPane;
+    private VBox illnessesResultPane;
 
 
     //
@@ -154,17 +151,63 @@ public class Controller {
     private ToggleGroup pruebaEsteresaLeucocitaria;
 
 
-    private Map<String, Boolean> getInputFromPane (VBox inputPane) {
-        FilteredList<Node> userInput = inputPane.getChildren().filtered(node -> node instanceof CheckBox);
-        return userInput.stream().map(node -> (CheckBox)node).collect(Collectors.toMap(CheckBox::getId, CheckBox::isSelected));
-    }
+    /**
+     * Labels for displaying the symptons on the results pane
+     */
+    private static Map<String, String> symptomLabels =
+        Collections.unmodifiableMap(
+            Stream.
+                of(
+                    new SimpleEntry<>(KidneysNetwork.Nodes.FALTA_APETITO.toString(), "Falta de apetito"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.CANSANCIO.toString(), "Cansancio"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.PERDIDA_PESO.toString(), "Perdida de Peso"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.FALTA_ALIENTO.toString(), "Falta de aliento"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.BIOPSIA_RENAL.toString(), "Biopsia renal"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.FIEBRE.toString(), "Fiebre"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.RADIOGRAFIA.toString(), "Radiografía"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.MAREOS_VOMITOS.toString(), "Mareos y/o vómitos"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.TOMOGRAFIA_HELICOIDAL.toString(), "TC helicoidal sin contraste"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ANORMALIDADES_METABOLICAS.toString(), "Anomalías metabólicas"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.PROTEINURIA.toString(), "Proteinuria"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ANOMALIAS_RENALES_MESES.toString(), "Anomalías renales"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.HEMATURIA.toString(), "Hematuria"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.DOLOR.toString(), "Dolor"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ANEURISMAS_INTERCRANEALES.toString(), "Aneurisma intracraneal"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.HIPERTENSION.toString(), "Hipertensión"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ESTERESA_LEUCOCITARIA.toString(), "Prueba de esterasa leucocita")).
+                collect(Collectors.toMap(SimpleEntry::getKey, SimpleEntry::getValue)));
 
-    private Map<String, String> getInputFromChoiceBoxes (VBox inputPane) {
-        FilteredList<Node> userInput = inputPane.getChildren().filtered(node -> node instanceof ChoiceBox);
-        return userInput.stream().map(node -> (ChoiceBox<String>)node).collect(Collectors.toMap(ChoiceBox::getId, ChoiceBox::getValue));
-    }
+    /**
+     * Helper map to facilitate extracting the beliefs of the symptons.
+     */
+    private static Map<KidneysNetwork.Nodes, String> symptomOutcomes =
+        Collections.unmodifiableMap(
+            Stream.
+                of(
+                    new SimpleEntry<>(KidneysNetwork.Nodes.FALTA_APETITO, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.CANSANCIO, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.PERDIDA_PESO, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.FALTA_ALIENTO, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.BIOPSIA_RENAL, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.FIEBRE, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.RADIOGRAFIA, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.MAREOS_VOMITOS, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.TOMOGRAFIA_HELICOIDAL, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ANORMALIDADES_METABOLICAS, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.PROTEINURIA, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ANOMALIAS_RENALES_MESES, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.HEMATURIA, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.DOLOR, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ANEURISMAS_INTERCRANEALES, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.HIPERTENSION, "positive"),
+                    new SimpleEntry<>(KidneysNetwork.Nodes.ESTERESA_LEUCOCITARIA, "positive")).
+                collect(Collectors.toMap(SimpleEntry::getKey, SimpleEntry::getValue)));
 
-    private static Map<String, String> labels =
+
+    /**
+     * Labels for displaying the illnesses on the results pane
+     */
+    private static Map<String, String> illnessLabels =
         Collections.unmodifiableMap(
             Stream.
                 of(
@@ -175,7 +218,10 @@ public class Controller {
                     new SimpleEntry<>(KidneysNetwork.Nodes.INFECCIONES.toString(), "Pielonefritis")).
                 collect(Collectors.toMap(SimpleEntry::getKey, SimpleEntry::getValue)));
 
-    private static Map<KidneysNetwork.Nodes, String> outcomes =
+    /**
+     * Helper map to facilitate extracting the beliefs of the illnesses.
+     */
+    private static Map<KidneysNetwork.Nodes, String> illnessOutcomes =
         Collections.unmodifiableMap(
             Stream.
                 of(
@@ -280,7 +326,7 @@ public class Controller {
                     entry ->
                         new SimpleEntry<>(
                             entry.getKey().toString(),
-                            network.getInferer().getBeliefs(network.getNet().getNode(entry.getKey().toString()))[1])).
+                            network.getProbabilityFor(entry.getKey(), entry.getValue()))).
                 collect(Collectors.toMap(SimpleEntry::getKey, SimpleEntry::getValue));
     }
 
@@ -302,9 +348,10 @@ public class Controller {
      * Generates the content composing a single result.
      * @param illness
      * @param outcome
+     * @param labels
      * @return Single result composing a single result.
      */
-    private HBox outcomeProbability (String illness, Double outcome) {
+    private HBox outcomeProbability (String illness, Double outcome, Map<String, String> labels) {
         final Label illnessName = new Label();
         illnessName.setText(String.format("%-1.50s", labels.get(illness) + ": "));
 
@@ -326,10 +373,11 @@ public class Controller {
     /**
      * Generates the UI elements contained in the results pane.
      * @param results
+     * @param labels
      * @return Collection of UI elements composing the results pane.
      */
-    private HBox[] outcomesProbabilities (Map<String, Double> results) {
-        return results.entrySet().stream().map(entry -> outcomeProbability(entry.getKey(), entry.getValue())).toArray(HBox[]::new);
+    private HBox[] outcomesProbabilities (Map<String, Double> results, Map<String, String> labels) {
+        return results.entrySet().stream().map(entry -> outcomeProbability(entry.getKey(), entry.getValue(), labels)).toArray(HBox[]::new);
     }
 
     /**
@@ -337,14 +385,18 @@ public class Controller {
      *
      * @param resultsPane
      * @param results
+     * @param labels
      */
-    private void outputResults (VBox resultsPane, Map<String, Double> results) {
-        resultsPane.getChildren().addAll(outcomesProbabilities(results));
+    private void outputResults (VBox resultsPane, Map<String, Double> results, Map<String, String> labels) {
+        resultsPane.getChildren().addAll(outcomesProbabilities(results, labels));
     }
 
 
+    /**
+     * Event handler to configure the net and perform the inference.
+     */
     @FXML
-    protected void handleAnalysis(ActionEvent actionEvent) {
+    protected void handleAnalysis() {
         KidneysNetwork network = new KidneysNetwork();
 
         // Extract user input
@@ -398,14 +450,22 @@ public class Controller {
         Map<BayesNodeBase, String> evidence = prepareEvidence(network, convertedResults);
         network.getInferer().setEvidence(evidence);
 
-        // Get each outcome probability
-        Map<String, Double> beliefs = getBeliefs(network, outcomes);
+        // Get each illness outcome probability
+        Map<String, Double> illnessBeliefs = getBeliefs(network, illnessOutcomes);
 
-        // Sort by probability in descending order
-        Map<String, Double> sortedResults = sortResults(beliefs);
+        // Sort illnesses by probability in descending order
+        Map<String, Double> sortedIllnesses = sortResults(illnessBeliefs);
+
+        // Get each sympton outcome probability
+        Map<String, Double> symptonsBeliefs = getBeliefs(network, symptomOutcomes);
+
+        // Sort symptons by probability in descending order
+        Map<String, Double> sortedSymptons = sortResults(symptonsBeliefs);
 
         // Display the output on the UI
-        resultsPane.getChildren().clear();
-        outputResults(resultsPane, sortedResults);
+        illnessesResultPane.getChildren().clear();
+        outputResults(illnessesResultPane, sortedIllnesses, illnessLabels);
+        symptonsResultPane.getChildren().clear();
+        outputResults(symptonsResultPane, sortedSymptons, symptomLabels);
     }
 }
