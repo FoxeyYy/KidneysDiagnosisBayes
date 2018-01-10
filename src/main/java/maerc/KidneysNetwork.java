@@ -154,8 +154,6 @@ public class KidneysNetwork {
         BayesNodeBase cancer = net.createNode(Nodes.CANCER.toString(), BayesNodeBase.TYPE.DEFAULT);
         cancer.addOutcomes(FALSE, TRUE);
         cancer.setParents(Arrays.asList(ingestaMedicamentosDolor, obesidad, productosIndustriales, VHL, fumador, genero));
-        //double[] placeholder = new double[128];
-        //Arrays.fill(placeholder, .5);
         cancer.setProbabilities(
                 0.970, 0.030,
                 0.984, 0.016,
@@ -225,8 +223,6 @@ public class KidneysNetwork {
         BayesNodeBase quistes = net.createNode(Nodes.PQRAD.toString(), BayesNodeBase.TYPE.DEFAULT);
         quistes.addOutcomes(FALSE, TRUE);
         quistes.setParents(Arrays.asList(historialQuistes, edadRiesgo, fumador, genero));
-        //placeholder = new double[32];
-        //Arrays.fill(placeholder, .5);
         quistes.setProbabilities(
                 0.9999922, 0.0000078,
                 0.9999931, 0.0000069,
@@ -248,8 +244,6 @@ public class KidneysNetwork {
         BayesNodeBase piedras = net.createNode(Nodes.PIEDRAS.toString(), BayesNodeBase.TYPE.DEFAULT);
         piedras.addOutcomes(FALSE, TRUE);
         piedras.setParents(Arrays.asList(quistes, antecedentesPiedrasPersonal, antecedentesPiedrasFamilia, fumador, genero));
-        //placeholder = new double[64];
-        //Arrays.fill(placeholder, .5);
         piedras.setProbabilities(
                 0.88, 0.12,
                 0.9, 0.1,
@@ -287,8 +281,6 @@ public class KidneysNetwork {
         BayesNodeBase cronica = net.createNode(Nodes.CRONICA_RENAL.toString(), BayesNodeBase.TYPE.DEFAULT);
         cronica.addOutcomes(FALSE, TRUE);
         cronica.setParents(Arrays.asList(enfermedadesCardiov, diabetes, consumoAlcohol, fumador, genero));
-        //placeholder = new double[64];
-        //Arrays.fill(placeholder, .5);
         cronica.setProbabilities(
                 0.879, 0.121,
                 0.849, 0.151,
@@ -327,8 +319,6 @@ public class KidneysNetwork {
         BayesNodeBase infecciones = net.createNode(Nodes.INFECCIONES.toString(), BayesNodeBase.TYPE.DEFAULT);
         infecciones.addOutcomes(FALSE, TRUE);
         infecciones.setParents(Arrays.asList(diabetes, embarazo, genero));
-        //placeholder = new double[16];
-        //Arrays.fill(placeholder, .5);
         infecciones.setProbabilities(
                 0.83, 0.17,
                 0.63, 0.37,
