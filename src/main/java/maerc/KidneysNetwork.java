@@ -219,7 +219,8 @@ public class KidneysNetwork {
                 0.6311, 0.3689,
                 0.0172, 0.9828,
                 0.0466, 0.9534,
-                0.0002, 0.9998);
+                0.0002, 0.9998,
+                0.002, 0.998);
 
         BayesNodeBase quistes = net.createNode(Nodes.PQRAD.toString(), BayesNodeBase.TYPE.DEFAULT);
         quistes.addOutcomes(FALSE, TRUE);
