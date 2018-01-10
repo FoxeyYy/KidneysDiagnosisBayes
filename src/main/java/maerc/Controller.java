@@ -3,15 +3,11 @@ package maerc;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.eclipse.recommenders.jayes.BayesNet;
-import org.eclipse.recommenders.jayes.BayesNode;
 import org.eclipse.recommenders.jayes.BayesNodeBase;
 
 import java.text.DecimalFormat;
