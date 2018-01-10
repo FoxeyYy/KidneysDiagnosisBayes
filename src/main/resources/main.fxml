@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -16,69 +17,564 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ToggleGroup?>
 <GridPane alignment="BASELINE_LEFT" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maerc.Controller">
     <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
-
-    <Text text="Welcome" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
 
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
         <VBox fx:id="previousInfoPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Información Previa" />
-            <CheckBox fx:id="painkillers" text="Ingesta frecuente de analgésicos" />
-            <CheckBox fx:id="obesity" text="Obesidad" />
-            <CheckBox fx:id="exposition" text="Exposición a productos industriales" />
-            <CheckBox fx:id="vhlMutation" text="Mutación en gen VHL" />
-            <CheckBox fx:id="smoker" text="Fumador" />
-            <ChoiceBox fx:id="gender" prefWidth="150.0" value="Gender">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Gender"/>
-                        <String fx:value="Male"/>
-                        <String fx:value="Female"/>
-                    </FXCollections>
-                </items>
-            </ChoiceBox>
-            <CheckBox fx:id="personalBackground" text="Antecedentes personales de cálculos renales" />
-            <CheckBox fx:id="familiarBackground" text="Antecedentes familiares de cálculos renales" />
-            <CheckBox fx:id="cardiovascularEvent" text="Evento cardiovascular" />
-            <CheckBox fx:id="cardiovascularIllness" text="Enfermedad cardiovascular" />
-            <CheckBox fx:id="alcoholic" text="Alcoholismo" />
-            <CheckBox fx:id="diabetic" text="Diabetes" />
-            <CheckBox fx:id="ageRisk" text="Edad de riesgo (30-40)" />
-            <CheckBox fx:id="pqrad" text="Historial familiar PQRAD" />
-            <CheckBox fx:id="pregnant" text="Embarazo" />
+
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="genero" userData="genero"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Género"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$genero" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$genero" text="Hombre"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$genero" text="Mujer"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="ingestaMedicamentosDolor" userData="ingestaMedicamentosDolor"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Ingesta frecuente de analgésicos"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$ingestaMedicamentosDolor" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$ingestaMedicamentosDolor" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$ingestaMedicamentosDolor" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="obesidad" userData="obesidad"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Obesidad"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$obesidad" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$obesidad" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$obesidad" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="productosIndustriales" userData="productosIndustriales"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Exposición a productos industriales"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$productosIndustriales" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$productosIndustriales" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$productosIndustriales" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="VHL" userData="VHL"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Mutación en gen VHL"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$VHL" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$VHL" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$VHL" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="fumador" userData="fumador"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Fumador"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$fumador" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$fumador" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$fumador" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="antecedentesPersonalesPiedras" userData="antecedentesPersonalesPiedras"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Antecedentes personales de cálculos renales"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="antecedentesFamiliaresPiedras" userData="antecedentesFamiliaresPiedras"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Antecedentes familiares de cálculos renales"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="enfermedadesCardiovasculares" userData="enfermedadesCardiovasculares"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Enfermedad cardiovascular"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="consumoExcesivoAlcohol" userData="consumoExcesivoAlcohol"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Consumo excesivo de alcohol"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="diabetes" userData="diabetes"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Diabetes"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$diabetes" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$diabetes" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$diabetes" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="edadRiesgo" userData="edadRiesgo"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Edad de riesgo"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$edadRiesgo" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$edadRiesgo" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$edadRiesgo" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="historialFamiliarPQRAD" userData="historialFamiliarPQRAD"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Hisorial familiar de PQRAD"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="embarazo" userData="embarazo"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Embarazo"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$embarazo" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$embarazo" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$embarazo" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
         </VBox>
 
         <VBox fx:id="illnessesPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Enfermedades" />
-            <CheckBox fx:id="cancer" text="Carcinoma de células renales" />
-            <CheckBox fx:id="stones" text="Cálculos renales" />
-            <CheckBox fx:id="chronicKidneyDisease" text="Enfermedad renal crónica" />
-            <CheckBox fx:id="cysticKidneyDisease" text="Quistes en el riñon" />
-            <CheckBox fx:id="pyelonephritis" text="Pielonefritis" />
+
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="cancer" userData="cancer"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Carcinoma de las células renales"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$cancer" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$cancer" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$cancer" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="piedras" userData="piedras"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Cálculos renales"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$piedras" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$piedras" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$piedras" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="enfermedadCronicaRenal" userData="enfermedadCronicaRenal"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Enfermedad renal crónica"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="quistesPQRAD" userData="quistesPQRAD"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Quistes en el riñon"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="infeccionesTractoUrinario" userData="infeccionesTractoUrinario"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Pielonefritis"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="No"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
         </VBox>
 
         <VBox fx:id="symptonsPane" alignment="BASELINE_LEFT" spacing="10">
             <Label text="Síntomas" />
-            <CheckBox fx:id="poorAppetite" text="Falta de apetito" />
-            <CheckBox fx:id="weightLoss" text="Pérdida de peso" />
-            <CheckBox fx:id="tiredness" text="Cansancio" />
-            <CheckBox fx:id="shortnessOfBreath" text="Falta de aliento" />
-            <CheckBox fx:id="renalBiopsy" text="Biopsia renal" />
-            <CheckBox fx:id="fever" text="Fiebre" />
-            <CheckBox text="Radiografía" fx:id="xRays" />
-            <CheckBox fx:id="dizzinessVomiting" text="Mareos y/o vómitos" />
-            <CheckBox fx:id="helicalCT" text="TC helicoidal sin contraste" />
-            <CheckBox fx:id="metabolicAnomalies" text="Anomalías metabólicas" />
-            <CheckBox fx:id="proteinuria" text="Proteinuria" />
-            <CheckBox fx:id="renalAnomalies3Months" text="Anomalías renales estructurales o funcionales por más de 3 meses" />
-            <CheckBox fx:id="hematuria" text="Hematuria" />
-            <CheckBox fx:id="pain" text="Dolor (cualquier región)" />
-            <CheckBox fx:id="aneurysm" text="Aneurisma intracraneal" />
-            <CheckBox fx:id="hypertension" text="Hipertensión" />
-            <CheckBox fx:id="leukocyteEsteraseTest" text="Prueba de esterasa leucocita" />
+
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="faltaDeApetito" userData="faltaDeApetito"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Falta de apetito"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$faltaDeApetito" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$faltaDeApetito" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$faltaDeApetito" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="cansancio" userData="cansancio"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Cansancio"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$cansancio" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$cansancio" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$cansancio" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="perdidaDePeso" userData="perdidaDePeso"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Perdida de peso"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$perdidaDePeso" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$perdidaDePeso" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$perdidaDePeso" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="faltaDeAliento" userData="faltaDeAliento"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Falta de aliento"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$faltaDeAliento" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$faltaDeAliento" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$faltaDeAliento" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="biopsiaRenal" userData="biopsiaRenal"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Biopsia renal"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$biopsiaRenal" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$biopsiaRenal" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$biopsiaRenal" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="fiebre" userData="fiebre"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Fiebre"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$fiebre" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$fiebre" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$fiebre" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="radiografia" userData="radiografia"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Radiografía"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$radiografia" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$radiografia" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$radiografia" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="mareosYVomitos" userData="mareosYVomitos"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Mareos y/o vómitos"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$mareosYVomitos" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$mareosYVomitos" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$mareosYVomitos" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="tomografiaComputerizadaHelicoidal" userData="tomografiaComputerizadaHelicoidal"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="TC helicoidal sin contraste"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$tomografiaComputerizadaHelicoidal" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$tomografiaComputerizadaHelicoidal" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$tomografiaComputerizadaHelicoidal" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="anormalidadesMetabolicas" userData="anormalidadesMetabolicas"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Anomalías metabólicas"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$anormalidadesMetabolicas" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$anormalidadesMetabolicas" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$anormalidadesMetabolicas" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="proteinuria" userData="proteinuria"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Proteinuria"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$proteinuria" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$proteinuria" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$proteinuria" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="anomaliasRenalesTresMeses" userData="anomaliasRenalesTresMeses"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Anomalías renales estructurales o funcionales por más de 3 meses"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$anomaliasRenalesTresMeses" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$anomaliasRenalesTresMeses" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$anomaliasRenalesTresMeses" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="hematuria" userData="hematuria"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Hematuria"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$hematuria" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$hematuria" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$hematuria" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="dolor" userData="dolor"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Dolor"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$dolor" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$dolor" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$dolor" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="aneurismasIntercraneales" userData="aneurismasIntercraneales"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Aneurisma intracraneal"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$aneurismasIntercraneales" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$aneurismasIntercraneales" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$aneurismasIntercraneales" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="hipertesion" userData="hipertesion"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Hipertensión"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$hipertesion" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$hipertesion" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$hipertesion" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="pruebaEsteresaLeucocitaria" userData="pruebaEsteresaLeucocitaria"/>
+                </fx:define>
+                <children>
+                    <VBox>
+                        <Label text="Prueba de esterasa leucocita"/>
+                        <HBox>
+                            <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$pruebaEsteresaLeucocitaria" text="N.S. / N.C."/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$pruebaEsteresaLeucocitaria" text="Positivo"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$pruebaEsteresaLeucocitaria" text="Negativo"/>
+                        </HBox>
+                    </VBox>
+                </children>
+            </HBox>
         </VBox>
 
         <Separator orientation="VERTICAL" />

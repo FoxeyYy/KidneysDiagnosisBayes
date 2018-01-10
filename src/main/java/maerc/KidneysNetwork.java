@@ -311,4 +311,8 @@ public class KidneysNetwork {
         BayesNodeBase node = net.getNode(nodeName.toString());
         return inferer.getBeliefs(node)[node.getOutcomeIndex(outcome)];
     }
+
+    public IBayesInferer getInferer() {
+        return inferer;
+    }
 }
