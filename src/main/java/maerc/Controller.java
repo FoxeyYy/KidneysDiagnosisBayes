@@ -272,7 +272,7 @@ public class Controller {
      */
     private Map<String, String> convert =
         Map.of(
-            "Si", "true",
+            "Sí", "true",
             "No", "false",
             "Negativo", "negative",
             "Positivo", "positive",

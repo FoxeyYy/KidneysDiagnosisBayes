@@ -60,7 +60,7 @@
                         <Label text="Obesidad"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$obesidad" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$obesidad" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$obesidad" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$obesidad" text="No"/>
                         </HBox>
                     </VBox>
@@ -75,7 +75,7 @@
                         <Label text="Exposición a productos industriales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$productosIndustriales" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$productosIndustriales" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$productosIndustriales" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$productosIndustriales" text="No"/>
                         </HBox>
                     </VBox>
@@ -90,7 +90,7 @@
                         <Label text="Mutación en gen VHL"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$VHL" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$VHL" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$VHL" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$VHL" text="No"/>
                         </HBox>
                     </VBox>
@@ -105,7 +105,7 @@
                         <Label text="Fumador"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$fumador" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$fumador" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$fumador" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$fumador" text="No"/>
                         </HBox>
                     </VBox>
@@ -121,7 +121,7 @@
                         <Label text="cálculos renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesPersonalesPiedras" text="No"/>
                         </HBox>
                     </VBox>
@@ -137,7 +137,7 @@
                         <Label text="cálculos renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$antecedentesFamiliaresPiedras" text="No"/>
                         </HBox>
                     </VBox>
@@ -152,7 +152,7 @@
                         <Label text="Enfermedad cardiovascular"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadesCardiovasculares" text="No"/>
                         </HBox>
                     </VBox>
@@ -167,7 +167,7 @@
                         <Label text="Consumo excesivo de alcohol"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$consumoExcesivoAlcohol" text="No"/>
                         </HBox>
                     </VBox>
@@ -182,7 +182,7 @@
                         <Label text="Diabetes"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$diabetes" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$diabetes" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$diabetes" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$diabetes" text="No"/>
                         </HBox>
                     </VBox>
@@ -197,7 +197,7 @@
                         <Label text="Edad de riesgo"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$edadRiesgo" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$edadRiesgo" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$edadRiesgo" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$edadRiesgo" text="No"/>
                         </HBox>
                     </VBox>
@@ -212,7 +212,7 @@
                         <Label text="Hisorial familiar de PQRAD"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$historialFamiliarPQRAD" text="No"/>
                         </HBox>
                     </VBox>
@@ -227,7 +227,7 @@
                         <Label text="Embarazo"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$embarazo" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$embarazo" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$embarazo" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$embarazo" text="No"/>
                         </HBox>
                     </VBox>
@@ -250,7 +250,7 @@
                         <Label text="células renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$cancer" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$cancer" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$cancer" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$cancer" text="No"/>
                         </HBox>
                     </VBox>
@@ -265,7 +265,7 @@
                         <Label text="Cálculos renales"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$piedras" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$piedras" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$piedras" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$piedras" text="No"/>
                         </HBox>
                     </VBox>
@@ -280,7 +280,7 @@
                         <Label text="Enfermedad renal crónica"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$enfermedadCronicaRenal" text="No"/>
                         </HBox>
                     </VBox>
@@ -295,7 +295,7 @@
                         <Label text="Quistes en el riñon"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$quistesPQRAD" text="No"/>
                         </HBox>
                     </VBox>
@@ -310,7 +310,7 @@
                         <Label text="Pielonefritis"/>
                         <HBox>
                             <RadioButton selected="true" mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="N.S. / N.C."/>
-                            <RadioButton mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="Si"/>
+                            <RadioButton mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="Sí"/>
                             <RadioButton mnemonicParsing="false" toggleGroup="$infeccionesTractoUrinario" text="No"/>
                         </HBox>
                     </VBox>
@@ -584,7 +584,7 @@
 
         <VBox>
             <padding><Insets right="10" /></padding>
-            <Label text="Resultados simptomas:" />
+            <Label text="Resultados sintomas:" />
             <VBox fx:id="symptonsResultPane" alignment="BASELINE_LEFT" spacing="10">
             </VBox>
         </VBox>
@@ -598,7 +598,7 @@
     </HBox>
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
-        <Button onAction="#handleAnalysis" text="Analyze" />
+        <Button onAction="#handleAnalysis" text="Analizar" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />
